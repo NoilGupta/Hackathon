@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato Restaurant UI Example</title>
+    <style>
+        /* Basic UI styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #ff4d4d;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .restaurant-details {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .restaurant-details h1 {
+            color: #ff4d4d;
+        }
+        .rating {
+            font-size: 20px;
+            color: #ff9900;
+        }
+        .reviews {
+            margin-top: 30px;
+        }
+        .review {
+            background-color: white;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .review p {
+            margin: 0;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Zomato Restaurant</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Restaurant Details Section -->
+        <section class="restaurant-details">
+            <h1>Best Italian Restaurant</h1>
+            <p>Location: New York, USA</p>
+            <p class="rating">Rating: 4.5/5</p>
+            <p>Price Range: $$</p>
+            <button onclick="toggleMenu()">View Menu</button>
+
+            <!-- Menu Section -->
+            <div id="menu" style="display:none;">
+                <h2>Menu</h2>
+                <ul>
+                    <li>Pasta Carbonara - $12</li>
+                    <li>Margherita Pizza - $15</li>
+                    <li>Tiramisu - $8</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="reviews">
+            <h2>Customer Reviews</h2>
+            <div class="review">
+                <p><strong>John Doe:</strong> Amazing food and great service!</p>
+            </div>
+            <div class="review">
+                <p><strong>Jane Smith:</strong> The pasta was a bit undercooked, but the pizza was perfect!</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 Zomato. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for toggling the menu section
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            if (menu.style.display === "none") {
+                menu.style.display = "block";
+            } else {
+                menu.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
