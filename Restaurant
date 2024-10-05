@@ -3,132 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zomato Restaurant UI Example</title>
+    <title>Colletta Restaurant</title>
     <style>
-        /* Basic UI styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
         }
+        
+        /* Navigation Bar */
         header {
-            background-color: #ff4d4d;
-            padding: 10px;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #2A2A2A;
             color: white;
         }
-        nav ul {
+        header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        header nav {
             display: flex;
-            justify-content: center;
-            list-style-type: none;
+            gap: 20px;
         }
-        nav ul li {
-            margin: 0 15px;
-        }
-        nav ul li a {
+        header nav a {
             color: white;
             text-decoration: none;
             font-weight: bold;
         }
-        .container {
-            width: 80%;
-            margin: 20px auto;
+        .contact-info {
+            font-size: 0.8em;
         }
-        .restaurant-details {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
         }
-        .restaurant-details h1 {
-            color: #ff4d4d;
+        .hero img {
+            width: 100%;
+            height: auto;
+            filter: brightness(50%);
         }
-        .rating {
-            font-size: 20px;
-            color: #ff9900;
+        .hero .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
-        .reviews {
-            margin-top: 30px;
-        }
-        .review {
-            background-color: white;
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-        .review p {
+        .hero h1 {
+            font-size: 4em;
             margin: 0;
         }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #333;
+        .hero button {
+            background-color: #002f6c;
             color: white;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            padding: 10px 20px;
+            border: none;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        /* Cocktails Section for Mobile */
+        .cocktails {
+            background-color: #F3F3F3;
+            padding: 20px;
+            display: none;
+        }
+        .cocktails h2 {
+            font-size: 1.5em;
+        }
+        .cocktails ul {
+            list-style: none;
+            padding: 0;
+        }
+        .cocktails li {
+            margin-bottom: 20px;
+        }
+        .cocktails .price {
+            font-weight: bold;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .cocktails {
+                display: block;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Header -->
     <header>
-        <h1>Zomato Restaurant</h1>
+        <div class="logo">COLLETTA</div>
         <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#reviews">Reviews</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <a href="#">Hours & Location</a>
+            <a href="#">Menus</a>
+            <a href="#">About</a>
+            <a href="#">Happenings</a>
+            <a href="#">Private Dining</a>
+            <a href="#">Gift Cards</a>
+            <a href="#">Reservations</a>
         </nav>
+        <div class="contact-info">900 3rd St, Alpharetta, GA 30009 | (678) 722-8335</div>
     </header>
 
-    <div class="container">
-        <!-- Restaurant Details Section -->
-        <section class="restaurant-details">
-            <h1>Best Italian Restaurant</h1>
-            <p>Location: New York, USA</p>
-            <p class="rating">Rating: 4.5/5</p>
-            <p>Price Range: $$</p>
-            <button onclick="toggleMenu()">View Menu</button>
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="/mnt/data/35778Coletta.webp" alt="Pizza">
+        <div class="text">
+            <h1>WELCOME</h1>
+            <button>RESERVE</button>
+        </div>
+    </section>
 
-            <!-- Menu Section -->
-            <div id="menu" style="display:none;">
-                <h2>Menu</h2>
-                <ul>
-                    <li>Pasta Carbonara - $12</li>
-                    <li>Margherita Pizza - $15</li>
-                    <li>Tiramisu - $8</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Reviews Section -->
-        <section class="reviews">
-            <h2>Customer Reviews</h2>
-            <div class="review">
-                <p><strong>John Doe:</strong> Amazing food and great service!</p>
-            </div>
-            <div class="review">
-                <p><strong>Jane Smith:</strong> The pasta was a bit undercooked, but the pizza was perfect!</p>
-            </div>
-        </section>
+    <!-- Cocktails Section (Mobile) -->
+    <div class="cocktails">
+        <h2>COCKTAILS</h2>
+        <ul>
+            <li>
+                <strong>ALBA D'ORO</strong><br>
+                House-made limoncello, lemon, honey-chili syrup, chili rim<br>
+                <span class="price">$10</span>
+            </li>
+            <li>
+                <strong>LA DAMA BIANCA</strong><br>
+                Ketel One grapefruit and rose, triple sec, lemon, egg white<br>
+                <span class="price">$14</span>
+            </li>
+            <li>
+                <strong>LA VITA BELLA</strong><br>
+                13th Colony gin, house-made cranberry-orange simple syrup, lemon, prosecco<br>
+                <span class="price">$12</span>
+            </li>
+            <li>
+                <strong>THE BLACK PEARL</strong><br>
+                Dark rum, amaretto, pineapple juice, lime, simple syrup<br>
+                <span class="price">$12</span>
+            </li>
+        </ul>
     </div>
 
-    <footer>
-        <p>© 2024 Zomato. All rights reserved.</p>
-    </footer>
-
-    <script>
-        // JavaScript for toggling the menu section
-        function toggleMenu() {
-            const menu = document.getElementById("menu");
-            if (menu.style.display === "none") {
-                menu.style.display = "block";
-            } else {
-                menu.style.display = "none";
-            }
-        }
-    </script>
 </body>
 </html>
+
