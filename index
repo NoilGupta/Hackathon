@@ -1,0 +1,63 @@
+// Sample Data for Restaurants
+const restaurants = [
+    {
+        id: 1,
+        name: "Italian Delight",
+        location: "New York, USA",
+        rating: "★★★★☆",
+        image: "images/restaurant1.jpg",
+        description: "Experience the authentic taste of Italy with our wide range of pasta, pizza, and desserts."
+    },
+    {
+        id: 2,
+        name: "Sushi World",
+        location: "San Francisco, USA",
+        rating: "★★★★☆",
+        image: "images/restaurant2.jpg",
+        description: "Fresh and delicious sushi prepared by our expert chefs. Enjoy a variety of rolls and sashimi."
+    },
+    // Add more restaurant objects as needed
+];
+
+// Function to search restaurants
+function searchRestaurants() {
+    const input = document.getElementById('searchInput');
+    const filter = input.value.toLowerCase();
+    const container = document.getElementById('restaurantContainer');
+    const cards = container.getElementsByClassName('restaurant-card');
+
+    for (let i = 0; i < cards.length; i++) {
+        const name = cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+        if (name.includes(filter)) {
+            cards[i].style.display = "";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+
+// Function to load restaurant details on restaurant.html
+function loadRestaurantDetails() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = parseInt(urlParams.get('id'));
+    const restaurant = restaurants.find(r => r.id === id);
+
+    if (restaurant) {
+        const container = document.getElementById('restaurantDetails');
+        container.innerHTML = `
+            <img src="${restaurant.image}" alt="${restaurant.name}">
+            <h2>${restaurant.name}</h2>
+            <p><strong>Location:</strong> ${restaurant.location}</p>
+            <p class="rating"><strong>Rating:</strong> ${restaurant.rating}</p>
+            <p>${restaurant.description}</p>
+        `;
+    } else {
+        const container = document.getElementById('restaurantDetails');
+        container.innerHTML = `<p>Restaurant not found.</p>`;
+    }
+}
+
+// Check if we're on the restaurant.html page and load details
+if (document.getElementById('restaurantDetails')) {
+    window.onload = loadRestaurantDetails;
+}
